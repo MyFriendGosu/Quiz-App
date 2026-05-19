@@ -36,4 +36,35 @@ Questions are fetched dynamically from the **Open Trivia Database (OpenTDB)** AP
 
 ## 📂 Project Structure
 
-![alt text](image.png)
+QUIZ APP
+├── controllers
+│   └── quizController.js
+├── node_modules
+├── public
+│   ├── js
+│   │   └── quiz.js
+│   └── sounds
+│       ├── correct.mp3
+│       ├── fail.mp3
+│       ├── success.mp3
+│       └── wrong.mp3
+├── routes
+│   └── quizRoutes.js
+├── test
+│   └── test.quiz.js
+├── views
+│   ├── partials
+│   │   ├── footer.ejs
+│   │   └── header.ejs
+│   ├── about.ejs
+│   ├── developers.ejs
+│   ├── home.ejs
+│   ├── profile.ejs
+│   ├── quiz.ejs
+│   ├── result.ejs
+│   ├── settings.ejs
+│   └── stats.ejs
+├── app.js
+├── package-lock.json
+├── package.json
+└── README.md
