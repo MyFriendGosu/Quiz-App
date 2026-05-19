@@ -1,0 +1,83 @@
+<%- include('partials/header') %>
+
+<!-- MAIN WRAPPER -->
+<div class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+
+  <!-- CARD STRUCTURE -->
+  <div class="w-full max-w-6xl bg-white rounded-[2.5rem] shadow-xl p-10 md:p-16">
+
+    <!-- HEADER SECTION -->
+    <div class="text-center mb-12">
+      <!-- Changed text-gray-800 to text-black -->
+      <h1 class="text-4xl md:text-5xl font-bold text-black flex items-center justify-center gap-3">
+        <span class="text-blue-600 font-mono">&lt;&gt;</span>
+        Developers
+      </h1>
+      <!-- Changed text-gray-500 to text-black -->
+      <p class="text-black mt-4 text-lg md:text-xl">
+        Meet the team behind the General Knowledge Quiz App
+      </p>
+    </div>
+
+    <!-- DEV GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- DEV 1: Andre Pulo -->
+      <div class="bg-white border border-gray-100 p-10 rounded-[2rem] shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05),0_8px_10px_-6px_rgba(0,0,0,0.05)] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+        <div class="w-24 h-24 mx-auto rounded-full bg-blue-600 flex items-center justify-center text-white text-3xl font-bold mb-6 shadow-inner">
+          AP
+        </div>
+        <!-- Changed text-gray-800 to text-black -->
+        <h2 class="text-2xl font-bold text-black">Andre Pulo</h2>
+        <p class="text-blue-500 font-semibold text-sm uppercase tracking-widest mt-1 mb-4">Frontend Developer</p>
+        <!-- Changed text-gray-600 to text-black -->
+        <p class="text-black leading-relaxed">
+          Responsible for UI layout, quiz interface design, animations, and user experience improvements.
+        </p>
+      </div>
+
+      <!-- DEV 2: Christian Jhay Faraon -->
+      <div class="bg-white border border-gray-100 p-10 rounded-[2rem] shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05),0_8px_10px_-6px_rgba(0,0,0,0.05)] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+        <div class="w-24 h-24 mx-auto rounded-full bg-blue-600 flex items-center justify-center text-white text-3xl font-bold mb-6 shadow-inner">
+          CF
+        </div>
+        <!-- Changed text-gray-800 to text-black -->
+        <h2 class="text-2xl font-bold text-black">Christian Jhay Faraon</h2>
+        <p class="text-blue-500 font-semibold text-sm uppercase tracking-widest mt-1 mb-4">Backend & API</p>
+        <!-- Changed text-gray-600 to text-black -->
+        <p class="text-black leading-relaxed">
+          Handles Express.js routing, OpenTDB API integration, scoring system, and backend logic.
+        </p>
+      </div>
+
+      <!-- DEV 3: Lj Jourie Miguel -->
+      <div class="bg-white border border-gray-100 p-10 rounded-[2rem] shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05),0_8px_10px_-6px_rgba(0,0,0,0.05)] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+        <div class="w-24 h-24 mx-auto rounded-full bg-blue-600 flex items-center justify-center text-white text-3xl font-bold mb-6 shadow-inner">
+          LM
+        </div>
+        <!-- Changed text-gray-800 to text-black -->
+        <h2 class="text-2xl font-bold text-black">Lj Jourie Miguel</h2>
+        <p class="text-blue-500 font-semibold text-sm uppercase tracking-widest mt-1 mb-4">Full Stack & Testing</p>
+        <!-- Changed text-gray-600 to text-black -->
+        <p class="text-black leading-relaxed">
+          Focuses on system testing, integration, debugging, and overall application improvement.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- FOOTER ACTIONS -->
+    <div class="mt-16 flex flex-col items-center gap-6 border-t border-gray-50 pt-10">
+      <!-- Changed text-gray-400 to text-black -->
+      <p class="text-black text-sm font-medium">
+        Built as an educational project using Node.js, Express, and EJS
+      </p>
+      
+      <a href="/" class="group inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-2xl shadow-lg transition-all hover:scale-105 active:scale-95 font-bold">
+        <span class="material-icons group-hover:animate-pulse">home</span>
+        Home
+      </a>
+    </div>
+
+  </div>
+</div>

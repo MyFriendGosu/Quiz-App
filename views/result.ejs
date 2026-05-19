@@ -1,0 +1,176 @@
+<%- include('partials/header') %>
+
+<div class="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-blue-50 to-indigo-100">
+
+  <div class="w-full max-w-lg bg-white rounded-2xl shadow-2xl p-8 text-center">
+
+    <h1 class="text-3xl font-bold mb-6">🎉 Quiz Result</h1>
+
+    <!-- 📈 PROGRESS RING -->
+    <div class="flex justify-center mb-6">
+
+      <svg class="w-40 h-40" viewBox="0 0 100 100">
+
+        <circle cx="50" cy="50" r="45"
+          stroke="#e5e7eb" stroke-width="8" fill="none" />
+
+        <circle id="progressRing"
+          cx="50" cy="50" r="45"
+          stroke="#3b82f6" stroke-width="8" fill="none"
+          stroke-linecap="round"
+          stroke-dasharray="283"
+          stroke-dashoffset="283"
+          transform="rotate(-90 50 50)" />
+
+        <text id="ringText"
+          x="50" y="55"
+          text-anchor="middle"
+          font-size="18"
+          font-weight="bold"
+          fill="#111827">
+        </text>
+
+      </svg>
+
+    </div>
+
+    <!-- SCORE -->
+    <div id="scoreText" class="text-2xl font-bold text-blue-600 mb-4"></div>
+
+    <!-- 📊 STATS GRID -->
+    <div class="grid grid-cols-2 gap-4 mb-6">
+
+      <div class="bg-green-50 p-4 rounded-xl">
+        <p class="text-sm text-gray-500">Correct</p>
+        <p id="correct" class="text-xl font-bold text-green-600"></p>
+      </div>
+
+      <div class="bg-red-50 p-4 rounded-xl">
+        <p class="text-sm text-gray-500">Incorrect</p>
+        <p id="incorrect" class="text-xl font-bold text-red-500"></p>
+      </div>
+
+    </div>
+
+    <!-- ⚡ SPEED -->
+    <div class="mb-6">
+      <p class="text-sm text-gray-500">Speed Score</p>
+      <p id="speed" class="text-lg font-bold text-indigo-600"></p>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="flex flex-col gap-3">
+
+      <a href="/quiz"
+         class="bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition">
+        🔁 Try Again
+      </a>
+
+      <a href="/"
+         class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 rounded-xl font-semibold transition">
+        🏠 Home
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- CONFETTI -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+  const score = Number("<%= score %>");
+  const total = Number("<%= total %>");
+
+  const correct = score;
+  const incorrect = total - score;
+
+  const accuracy = Math.round((score / total) * 100);
+
+  /* =========================
+     SCORE COUNTER
+  ========================== */
+  let current = 0;
+  const scoreEl = document.getElementById("scoreText");
+
+  const counter = setInterval(() => {
+    if (current <= score) {
+      scoreEl.innerText = `${current} / ${total}`;
+      current++;
+    } else {
+      clearInterval(counter);
+    }
+  }, 60);
+
+  /* =========================
+     STATS DISPLAY
+  ========================== */
+  document.getElementById("correct").innerText = correct;
+  document.getElementById("incorrect").innerText = incorrect;
+
+  /* =========================
+     SPEED SCORE (simple formula)
+     based on accuracy + performance
+  ========================== */
+  const speedScore = Math.round((accuracy * 0.7) + (correct * 3));
+  document.getElementById("speed").innerText = speedScore + " pts";
+
+  /* =========================
+     PROGRESS RING
+  ========================== */
+  const circle = document.getElementById("progressRing");
+  const ringText = document.getElementById("ringText");
+
+  const radius = 45;
+  const circumference = 2 * Math.PI * radius;
+
+  let progress = 0;
+
+  const ringAnim = setInterval(() => {
+    if (progress <= accuracy) {
+
+      const offset =
+        circumference - (progress / 100) * circumference;
+
+      circle.style.strokeDashoffset = offset;
+      ringText.textContent = `${progress}%`;
+
+      progress++;
+    } else {
+      clearInterval(ringAnim);
+    }
+  }, 12);
+
+  /* =========================
+     CONFETTI (PERFECT SCORE)
+  ========================== */
+  if (score === total) {
+    const end = Date.now() + 2000;
+
+    (function frame() {
+      confetti({
+        particleCount: 5,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
+  }
+
+  /* =========================
+     SOUND EFFECTS
+  ========================== */
+  const success = new Audio('/sounds/success.mp3');
+  const fail = new Audio('/sounds/fail.mp3');
+
+  window.onload = () => {
+    if (score >= total / 2) success.play();
+    else fail.play();
+  };
+</script>
+
+<%- include('partials/footer') %>

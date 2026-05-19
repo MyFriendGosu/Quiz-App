@@ -1,0 +1,77 @@
+<%- include('partials/header') %>
+
+<!-- 70% BACKGROUND -->
+<div class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+
+  <!-- 20% STRUCTURE CARD -->
+  <div class="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-8">
+
+    <!-- TITLE (10% ACCENT) -->
+    <!-- Changed text-gray-800 to text-black -->
+    <h1 class="text-3xl font-bold text-center mb-2 text-black flex items-center justify-center gap-2">
+      <span class="material-icons text-blue-600">menu_book</span>
+      About the App
+    </h1>
+
+    <!-- Changed text-gray-500 to text-black -->
+    <p class="text-center text-black mb-6">
+      General Knowledge Quiz App using OpenTDB API
+    </p>
+
+    <!-- CONTENT SECTION -->
+    <div class="bg-gray-50 p-6 rounded-xl mb-6">
+
+      <!-- Changed text-gray-800 to text-black -->
+      <h2 class="text-xl font-semibold mb-3 text-black">🧠 What is this app?</h2>
+
+      <!-- Changed text-gray-700 to text-black -->
+      <p class="text-black text-sm leading-relaxed mb-5">
+        This is a web-based General Knowledge Quiz Application built using
+        <b>Node.js, Express.js, EJS, and Tailwind CSS</b>.
+        It fetches real-time questions from the
+        <b>Open Trivia Database (OpenTDB)</b> and allows users to test their knowledge interactively.
+      </p>
+
+      <!-- Changed text-gray-800 to text-black -->
+      <h2 class="text-xl font-semibold mb-3 text-black">📚 Sample Topics Covered</h2>
+
+      <!-- Changed text-gray-700 to text-black -->
+      <ul class="list-disc list-inside text-black text-sm space-y-1 mb-5">
+        <li>General Science</li>
+        <li>History & World Events</li>
+        <li>Technology & Computers</li>
+        <li>Sports & Entertainment</li>
+        <li>Geography & Countries</li>
+      </ul>
+
+      <!-- Changed text-gray-800 to text-black -->
+      <h2 class="text-xl font-semibold mb-3 text-black">⚙ Features</h2>
+
+      <!-- Changed text-gray-700 to text-black -->
+      <ul class="list-disc list-inside text-black text-sm space-y-1">
+        <li>15-second timed questions</li>
+        <li>Instant correct / incorrect feedback</li>
+        <li>Score tracking system</li>
+        <li>Animated progress results</li>
+        <li>Performance statistics</li>
+      </ul>
+
+    </div>
+
+    <!-- BACK BUTTON (10% ACCENT) -->
+    <div class="text-center">
+
+      <a href="/"
+         class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow transition font-bold">
+
+        <span class="material-icons text-sm">home</span>
+        Home
+
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+<%- include('partials/footer') %>

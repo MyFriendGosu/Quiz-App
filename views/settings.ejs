@@ -1,0 +1,105 @@
+<%- include('partials/header') %>
+
+<!-- 70% BACKGROUND -->
+<div class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+
+  <!-- 20% STRUCTURE CARD -->
+  <div class="w-full max-w-lg bg-white p-8 rounded-2xl shadow-xl">
+
+    <!-- TITLE (10% ACCENT) -->
+    <!-- Changed text-gray-800 to text-black -->
+    <h1 class="text-2xl font-bold mb-6 text-black flex items-center gap-2">
+      <span class="material-icons text-blue-600">settings</span>
+      Settings
+    </h1>
+
+    <!-- TIMER -->
+    <div class="mb-5">
+      <!-- Changed text-gray-700 to text-black -->
+      <label class="block mb-2 font-semibold text-black">
+        ⏱ Quiz Timer
+      </label>
+
+      <!-- Added text-black to select -->
+      <select id="timerSetting"
+        class="w-full p-3 border rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black">
+
+        <option value="10">10 seconds</option>
+        <option value="15">15 seconds</option>
+        <option value="20">20 seconds</option>
+        <option value="30">30 seconds</option>
+
+      </select>
+    </div>
+
+    <!-- SOUND -->
+    <div class="mb-6">
+      <!-- Changed text-gray-700 to text-black -->
+      <label class="block mb-2 font-semibold text-black">
+        🔊 Sound Effects
+      </label>
+
+      <!-- Added text-black to select -->
+      <select id="soundSetting"
+        class="w-full p-3 border rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black">
+
+        <option value="on">On</option>
+        <option value="off">Off</option>
+
+      </select>
+    </div>
+
+    <!-- SAVE BUTTON (10% ACCENT) -->
+    <button onclick="saveSettings()"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition">
+
+      Save Settings
+
+    </button>
+
+    <!-- SUCCESS MESSAGE -->
+    <p id="msg"
+       class="text-green-600 mt-4 text-center hidden font-medium">
+      Settings saved successfully!
+    </p>
+
+    <!-- BACK TO HOME (20% SECONDARY ACTION) -->
+    <!-- Changed text-gray-700 to text-black -->
+    <a href="/"
+       class="block w-full mt-4 text-center bg-gray-100 hover:bg-gray-200 text-black py-3 rounded-xl font-semibold transition flex items-center justify-center gap-2">
+
+      <span class="material-icons text-sm">arrow_back</span>
+      Back to Home
+
+    </a>
+
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+function saveSettings() {
+
+  const timer = document.getElementById("timerSetting").value;
+  const sound = document.getElementById("soundSetting").value;
+
+  localStorage.setItem("quizTimer", timer);
+  localStorage.setItem("soundSetting", sound);
+
+  const msg = document.getElementById("msg");
+  msg.classList.remove("hidden");
+
+  setTimeout(() => {
+    msg.classList.add("hidden");
+  }, 2000);
+}
+
+/* Load saved values */
+document.getElementById("timerSetting").value =
+  localStorage.getItem("quizTimer") || "15";
+
+document.getElementById("soundSetting").value =
+  localStorage.getItem("soundSetting") || "on";
+</script>
+
+<%- include('partials/footer') %>

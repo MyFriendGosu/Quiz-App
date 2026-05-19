@@ -1,0 +1,115 @@
+<%- include('partials/header') %>
+
+<!-- 70% BASE BACKGROUND -->
+<div class="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+
+  <!-- MAIN WRAPPER: Added 'border border-gray-200' and a deep 'shadow-2xl' -->
+  <div class="bg-white border border-gray-200 shadow-2xl rounded-3xl max-w-4xl w-full p-10">
+
+    <!-- TITLE (10% ACCENT - BLUE ONLY) -->
+    <div class="text-center mb-10">
+      <span class="material-icons text-blue-600 text-6xl mb-2">
+        psychology
+      </span>
+
+      <!-- Changed text-gray-800 to text-black -->
+      <h1 class="text-4xl font-extrabold text-black">
+        General Knowledge Quiz App 
+      </h1>
+
+      <!-- Changed text-gray-500 to text-black -->
+      <p class="text-black mt-2 font-medium">
+        Test your knowledge. Track your progress. Improve daily.
+      </p>
+    </div>
+
+    <!-- FEATURE CARDS (20% STRUCTURE): Added border and shadow to each card -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+
+      <div class="bg-gray-50 border border-gray-200 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
+        <span class="material-icons text-blue-600 text-4xl mb-2">
+          timer
+        </span>
+        <!-- Changed text-gray-800 to text-black -->
+        <h3 class="font-bold text-lg text-black">Timed Questions</h3>
+        <!-- Changed text-gray-500 to text-black -->
+        <p class="text-sm text-black">
+          Answer before time runs out.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 border border-gray-200 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
+        <span class="material-icons text-blue-600 text-4xl mb-2">
+          leaderboard
+        </span>
+        <!-- Changed text-gray-800 to text-black -->
+        <h3 class="font-bold text-lg text-black">Track Stats</h3>
+        <!-- Changed text-gray-500 to text-black -->
+        <p class="text-sm text-black">
+          Monitor your performance.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 border border-gray-200 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
+        <span class="material-icons text-blue-600 text-4xl mb-2">
+          emoji_events
+        </span>
+        <!-- Changed text-gray-800 to text-black -->
+        <h3 class="font-bold text-lg text-black">Achievements</h3>
+        <!-- Changed text-gray-500 to text-black -->
+        <p class="text-sm text-black">
+          Earn perfect scores.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ACTION AREA -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <!-- PRIMARY ACTION (10% ACCENT) -->
+      <a href="/quiz"
+         class="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg transition transform hover:-translate-y-1">
+        <span class="material-icons">play_arrow</span>
+        Start Quiz
+      </a>
+
+      <!-- SECONDARY NAV BAR ACTIONS: Added border and shadow to nav buttons -->
+      <div class="grid grid-cols-3 gap-3">
+
+        <a href="/profile"
+           class="flex flex-col items-center justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 shadow-sm py-3 rounded-xl transition">
+          <!-- Changed text-gray-700/600 to text-black -->
+          <span class="material-icons text-black">person</span>
+          <span class="text-sm text-black font-semibold">Profile</span>
+        </a>
+
+        <a href="/stats"
+           class="flex flex-col items-center justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 shadow-sm py-3 rounded-xl transition">
+          <!-- Changed text-gray-700/600 to text-black -->
+          <span class="material-icons text-black">bar_chart</span>
+          <span class="text-sm text-black font-semibold">Stats</span>
+        </a>
+
+        <a href="/settings"
+           class="flex flex-col items-center justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 shadow-sm py-3 rounded-xl transition">
+          <!-- Changed text-gray-700/600 to text-black -->
+          <span class="material-icons text-black">settings</span>
+          <span class="text-sm text-black font-semibold">Settings</span>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- FOOTER LINKS -->
+    <div class="mt-10 text-center text-sm text-black font-medium">
+      <a href="/about" class="hover:text-blue-600 mx-2 transition-colors">About App</a>
+      •
+      <a href="/developers" class="hover:text-blue-600 mx-2 transition-colors">Developers</a>
+    </div>
+
+  </div>
+</div>
+
+<%- include('partials/footer') %>

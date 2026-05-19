@@ -1,0 +1,116 @@
+<%- include('partials/header') %>
+
+<div class="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-blue-50 to-indigo-100">
+
+  <!-- MAIN WRAPPER -->
+  <div class="w-full max-w-lg bg-white p-8 rounded-2xl border border-gray-200 shadow-2xl">
+
+    <!-- TITLE -->
+    <h1 class="text-2xl font-bold mb-6 text-black flex items-center gap-2">
+      <span class="material-icons text-blue-600">person</span>
+      Profile
+    </h1>
+
+    <!-- AVATAR SECTION -->
+    <div class="text-center mb-6">
+      <div id="avatarDisplay"
+           class="w-24 h-24 mx-auto rounded-full bg-blue-500 flex items-center justify-center text-white text-3xl font-bold mb-3 shadow-inner border-2 border-white">
+        👤
+      </div>
+
+      <p class="text-sm text-black mb-3 font-normal">Choose your avatar</p>
+
+      <div class="flex justify-center gap-2 flex-wrap mb-4">
+        <button onclick="previewAvatar('🧑')" class="text-2xl p-2 bg-gray-100 border border-gray-200 shadow-sm rounded-full hover:bg-gray-200 transition">🧑</button>
+        <button onclick="previewAvatar('👩')" class="text-2xl p-2 bg-gray-100 border border-gray-200 shadow-sm rounded-full hover:bg-gray-200 transition">👩</button>
+        <button onclick="previewAvatar('👨')" class="text-2xl p-2 bg-gray-100 border border-gray-200 shadow-sm rounded-full hover:bg-gray-200 transition">👨</button>
+        <button onclick="previewAvatar('🧑‍🎓')" class="text-2xl p-2 bg-gray-100 border border-gray-200 shadow-sm rounded-full hover:bg-gray-200 transition">🧑‍🎓</button>
+        <button onclick="previewAvatar('🧑‍💻')" class="text-2xl p-2 bg-gray-100 border border-gray-200 shadow-sm rounded-full hover:bg-gray-200 transition">🧑‍💻</button>
+        <button onclick="previewAvatar('🦸')" class="text-2xl p-2 bg-gray-100 border border-gray-200 shadow-sm rounded-full hover:bg-gray-200 transition">🦸</button>
+      </div>
+    </div>
+
+    <!-- STATS SECTION -->
+    <div class="space-y-4 text-black mb-8">
+      <div class="p-3 bg-gray-100 border border-gray-200 rounded-lg shadow-sm font-normal">
+        👤 Name: Student User
+      </div>
+
+      <div class="p-3 bg-blue-50 border border-blue-100 rounded-lg shadow-sm font-normal">
+        🧠 Last Score:
+        <span id="lastScore" class="font-normal"></span>
+      </div>
+
+      <div class="p-3 bg-green-50 border border-green-100 rounded-lg shadow-sm font-normal">
+        🏆 Best Score:
+        <span id="bestScore" class="font-normal"></span>
+      </div>
+
+      <div class="p-3 bg-yellow-50 border border-yellow-100 rounded-lg shadow-sm font-normal">
+        🔁 Total Attempts:
+        <span id="attempts" class="font-normal"></span>
+      </div>
+    </div>
+
+    <!-- ACTION BUTTONS AREA -->
+    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-gray-100">
+      
+      <!-- SAVE BUTTON -->
+      <button id="saveBtn" onclick="saveAvatar()" 
+              class="flex items-center justify-center gap-2 bg-white border border-black text-black py-3 rounded-xl font-bold shadow-lg transition transform hover:-translate-y-1">
+        <span class="material-icons">save</span>
+        Save Avatar
+      </button>
+
+      <!-- HOME BUTTON -->
+      <a href="/"
+         class="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl border border-blue-700 shadow-lg transition transform hover:-translate-y-1 font-bold">
+        <span class="material-icons">home</span>
+        Home
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  let selectedEmoji = localStorage.getItem("userAvatar") || "👤";
+
+  function previewAvatar(emoji) {
+    selectedEmoji = emoji;
+    document.getElementById("avatarDisplay").innerText = emoji;
+  }
+
+  function saveAvatar() {
+    localStorage.setItem("userAvatar", selectedEmoji);
+    
+    const btn = document.getElementById("saveBtn");
+    const originalContent = btn.innerHTML;
+    
+    // Feedback
+    btn.innerHTML = `<span class="material-icons">check_circle</span> Saved!`;
+    btn.classList.add("text-green-600", "border-green-600");
+    
+    setTimeout(() => {
+      btn.innerHTML = originalContent;
+      btn.classList.remove("text-green-600", "border-green-600");
+    }, 2000);
+  }
+
+  window.onload = () => {
+    const saved = localStorage.getItem("userAvatar");
+    if (saved) {
+      document.getElementById("avatarDisplay").innerText = saved;
+      selectedEmoji = saved;
+    }
+
+    document.getElementById("lastScore").innerText = localStorage.getItem("lastScore") || 0;
+    document.getElementById("bestScore").innerText = localStorage.getItem("bestScore") || 0;
+    
+    const attempts = JSON.parse(localStorage.getItem("quizAttempts")) || [];
+    document.getElementById("attempts").innerText = attempts.length;
+  };
+</script>
+
+<%- include('partials/footer') %>
