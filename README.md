@@ -38,33 +38,33 @@ Questions are fetched dynamically from the **Open Trivia Database (OpenTDB)** AP
 
 QUIZ APP/
 ├── controllers/
-│   └── quizController.js     # Logic for quiz operations (scoring, data fetching)
-├── node_modules/             # Installed npm packages
+│   └── quizController.js     # Scoring, data fetching, and quiz operations
+├── node_modules/             # Installed npm packages (auto-generated)
 ├── public/                   # Static assets served to the client
 │   ├── js/
-│   │   └── quiz.js           # Client-side logic (timer, UI interactions)
+│   │   └── quiz.js           # Timer, UI interactions, and client-side logic
 │   └── sounds/               # Audio feedback files
-│       ├── correct.mp3
-│       ├── fail.mp3
-│       ├── success.mp3
-│       └── wrong.mp3
+│       ├── correct.mp3       # Correct answer audio
+│       ├── fail.mp3          # Quiz failure audio
+│       ├── success.mp3       # Quiz success audio
+│       └── wrong.mp3         # Wrong answer audio
 ├── routes/
-│   └── quizRoutes.js         # Endpoint definitions
+│   └── quizRoutes.js         # Endpoint definitions for the quiz API
 ├── test/
 │   └── test.quiz.js          # Unit tests for quiz functionality
-├── views/                    # EJS Templates
-│   ├── partials/             # Reusable components
-│   │   ├── footer.ejs
-│   │   └── header.ejs
-│   ├── about.ejs
-│   ├── developers.ejs
-│   ├── home.ejs
-│   ├── profile.ejs
-│   ├── quiz.ejs
-│   ├── result.ejs
-│   ├── settings.ejs
-│   └── stats.ejs
+├── views/                    # EJS template files (UI)
+│   ├── partials/             # Reusable EJS components
+│   │   ├── footer.ejs        # Shared footer partial
+│   │   └── header.ejs        # Shared header partial
+│   ├── about.ejs             # About page template
+│   ├── developers.ejs        # Developers page template
+│   ├── home.ejs              # Home / landing page template
+│   ├── profile.ejs           # User profile page template
+│   ├── quiz.ejs              # Quiz interface template
+│   ├── result.ejs            # Quiz result page template
+│   ├── settings.ejs          # Settings page template
+│   └── stats.ejs             # Statistics page template
 ├── app.js                    # Express server entry point
-├── package-lock.json
-├── package.json              # Dependencies and scripts
+├── package-lock.json         # Locked dependency tree
+├── package.json              # Dependencies, scripts, and metadata
 └── README.md                 # Project documentation and structure
