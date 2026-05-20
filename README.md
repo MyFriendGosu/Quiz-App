@@ -6,7 +6,7 @@ Questions are fetched dynamically from the **Open Trivia Database (OpenTDB)** AP
 ## 📌 Features
 
 - ✅ General Knowledge questions only (OpenTDB Category 9)
-- ⏱ 15-second timer per question
+- ⏱ 10/15/20/30 second timer per question
 - 🔁 One question displayed at a time
 - ✔ Correct answer indicator
 - ✖ Incorrect answer indicator
