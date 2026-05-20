@@ -11,7 +11,7 @@ Questions are fetched dynamically from the **Open Trivia Database (OpenTDB)** AP
 - ✔ Correct answer indicator
 - ✖ Incorrect answer indicator
 - 🔀 Randomized answer choices
-- 🎯 Automatic next question
+- 💬 Feedback Dialog
 - 📱 Responsive UI using Tailwind CSS
 - 🧩 MVC architecture (Controllers, Routes, Views)
 
